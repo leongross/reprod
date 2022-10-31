@@ -1,0 +1,5 @@
+FROM ubuntu@sha256:7cfe75438fc77c9d7235ae502bf229b15ca86647ac01c844b272b56326d56184
+WORKDIR /
+RUN git clone https://github.com/leongross/reprod.git
+WORKDIR /reprod
+RUN git checkout 37d821d65b0af8fa8e9f209fc7be8c66711eaa7a

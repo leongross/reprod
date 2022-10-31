@@ -38,9 +38,10 @@ echo "[*] Using Dockerfile type '$EXT' ($(basename $DOCKER_FILE)) and tag '$CONT
 docker run \
     -v "$(pwd)"/context/:/workspace \
     -v "$(pwd)"/config.json:/kaniko/.docker/config.json:ro \
-    gcr.io/kaniko-project/executor:latest \
+    gcr.io/kaniko-project/executor \
     --reproducible \
     --dockerfile Dockerfile \
     --context dir:///workspace/ \
     --destination $DOCKER_USERNAME/test-kaniko:$CONTAINER_TAG \
-    --cache
+    --cache=false \
+    --tar-path here.tar
