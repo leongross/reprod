@@ -1,0 +1,4 @@
+FROM gcc@sha256:8a5062230bdc91184f13eaf47f31b956c0a9164c65b0ff2957adf739426cddd3
+COPY main.c /
+RUN gcc /main.c -o /main
+ENTRYPOINT ["/main"]
