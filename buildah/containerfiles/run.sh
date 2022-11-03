@@ -3,7 +3,6 @@
 set -x
 DOCKER_REG="leongross/test-buildah"
 AUTH_FILE=$(realpath "$HOME"/.docker/config.json)
-DOCKER_CREDS=$DOCKER_USERNAME:$DOCKER_PASSWORD
 IMAGE_NAME="buildah-dockerfile"
 IMAGE_TAG="buildah-reprod-0"
 
