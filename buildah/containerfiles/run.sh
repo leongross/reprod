@@ -4,7 +4,7 @@ set -x
 DOCKER_REG="leongross/test-buildah"
 AUTH_FILE=$(realpath "$HOME"/.docker/config.json)
 IMAGE_NAME="buildah-dockerfile"
-IMAGE_TAG="buildah-reprod-0"
+IMAGE_TAG="go-repro-1"
 
 # build OCI image
 #buildah build \
