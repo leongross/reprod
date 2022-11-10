@@ -1,0 +1,20 @@
+builds:
+- id: cli
+  dir: .
+  main: ./cli/
+  flags:
+  - -tags
+  - netgo
+  ldflags:
+  - -s -w
+  - -extldflags "-static"
+- id: disk-mapper
+  dir: .
+  main: ./disk-mapper/
+  flags:
+    - -tags
+  ldflags:
+    - -s -w
+  env:
+    - CGO_ENABLED=1
+
