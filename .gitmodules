@@ -1,0 +1,3 @@
+[submodule "ko/cgo/example-cgo"]
+	path = ko/cgo/examplecgo
+	url = https://github.com/chainguard-images/ko.git
