@@ -1,8 +1,8 @@
 FROM leongross/reprod:build as build
 
 WORKDIR /constellation/
-COPY go_plain/go.mod .
-COPY go_plain/main.go .
+COPY go_cgo/go.mod .
+COPY go_cgo/main.go .
 RUN CGO_ENABLED=0 go build -o main -buildvcs=false -trimpath -ldflags "-s -w -buildid=''"
 
 FROM scratch

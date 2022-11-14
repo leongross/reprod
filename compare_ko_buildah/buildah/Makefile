@@ -9,15 +9,18 @@ all: scratch distroless
 
 scratch:
 	buildah build ${BUILD_FLAGS} -t ${DOCKER_REG}${IMAGE}:${TAG}-$@ -f Containerfile.$@
+	buildah build ${BUILD_FLAGS} -t ${DOCKER_REG}${IMAGE}:${TAG}-cgo-$@ -f Containerfile.cgo.$@
 	buildah push ${DOCKER_REG}${IMAGE}:${TAG}-$@
+	buildah push ${DOCKER_REG}${IMAGE}:${TAG}-cgo-$@
 
 distroless:
 	buildah build ${BUILD_FLAGS} -t ${DOCKER_REG}${IMAGE}:${TAG}-$@ -f Containerfile.$@
+	buildah build ${BUILD_FLAGS} -t ${DOCKER_REG}${IMAGE}:${TAG}-cgo-$@ -f Containerfile.cgo.$@
 	buildah push ${DOCKER_REG}${IMAGE}:${TAG}-$@
-
-diff:
-	buildah inspect ${IMAGE}:${TAG}-scratch
+	buildah push ${DOCKER_REG}${IMAGE}:${TAG}-cgo-$@
 
 clean:
 	-buildah rmi ${DOCKER_REG}${IMAGE}:${TAG}-scratch
+	-buildah rmi ${DOCKER_REG}${IMAGE}:${TAG}-cgo-scratch
 	-buildah rmi ${DOCKER_REG}${IMAGE}:${TAG}-distroless
+	-buildah rmi ${DOCKER_REG}${IMAGE}:${TAG}-cgo-distroless
