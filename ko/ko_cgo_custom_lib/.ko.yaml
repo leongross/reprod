@@ -1,0 +1,20 @@
+defaultBaseImage: gcr.io/distroless/base:debug-nonroot
+
+builds:
+- id: cli
+  dir: .
+  main: ./cli
+  env:
+  - CGO_ENABLED=0
+  ldflags:
+  - -s -w
+  - -extldflags "-static"
+
+- id: disk-mapper
+  dir: .
+  main: ./disk-mapper/cmd
+  env:
+  - CGO_ENABLED=1
+  ldflags:
+  - -s -w
+  - -extldflags "-static"

@@ -1,0 +1,1 @@
+FROM gcr.io/distroless/base@sha256:90d0605800a57e3caec404f84b79751958e0132596aacfbfdc94eb1933835a2b

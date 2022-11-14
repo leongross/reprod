@@ -1,0 +1,9 @@
+FROM reprod:build as build
+
+WORKDIR /constellation/
+COPY main/go.mod .
+COPY main/main.go .
+RUN CGO_ENABLED=0 go build -o main -buildvcs=false -trimpath -ldflags "-s -w -buildid=''"
+
+FROM gcr.io/distroless/static:nonroot
+COPY --from=build /constellation/main /main
