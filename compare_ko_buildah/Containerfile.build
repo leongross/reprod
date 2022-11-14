@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 RUN apt update && apt upgrade -y
-RUN apt install libcryptsetup12 libcryptsetup-dev wget -y
+RUN apt install libcryptsetup12 libcryptsetup-dev wget uuid-dev gcc -y
 
 ARG GO_VER=1.19.3
 RUN wget -q https://go.dev/dl/go${GO_VER}.linux-amd64.tar.gz && \

@@ -3,7 +3,7 @@ BASE=leongross/reprod
 TAG=build
 IMAGE=${BASE}:${TAG}
 
-all: build buildah ko
+all: build buildah -ko
 
 build:
 	docker build . -t ${IMAGE} -f Containerfile.build

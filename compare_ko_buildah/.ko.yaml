@@ -1,0 +1,14 @@
+defaultBaseImage: gcr.io/distroless/base:debug-nonroot
+
+baseImageOverrides:
+  example/user/test: docker.io/leongross/reprod:build
+
+builds:
+- id: go_plain
+  dir: ./ko
+  main: ./cmd/test
+  env:
+  - CGO_ENABLED=0
+  ldflags:
+  - -s -w
+  - -extldflags "-static"
