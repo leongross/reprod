@@ -21,6 +21,7 @@ For `cgo` with missing libraries, it could look like this:
 ```
 
 ### ko
+**Note: `build` and `publish` are aliases**
 ```
 $ KO_CONFIG_PATH=$(realpath .ko.yaml) ko build ./ko/cmd
 ```
